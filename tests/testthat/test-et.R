@@ -1,15 +1,13 @@
-.rx <- loadNamespace("rxode2et")
-
 for (radi in c(1, 2)) {
-  .rx$forderForceBase(switch(radi,
-                             TRUE,
-                             FALSE
-                             ))
+  forderForceBase(switch(radi,
+                         TRUE,
+                         FALSE
+  ))
   radix <- switch(radi,
                   "base::order",
                   "data.table::forder"
-                  )
-  
+  )
+
   # context(sprintf("Test event Table et(...) sort:%s", radix))
   et <- et()
 
@@ -238,7 +236,7 @@ for (radi in c(1, 2)) {
   })
 
   test_that("seq works with wait", {
-    
+
     e1 <- et(amt = 100, ii = 24, addl = 6)
 
     e2 <- et(amt = 200, ii = 24, addl = 6)
@@ -564,4 +562,55 @@ test_that("'time' with invalid list", {
 test_that("'is' for rxode2 event tables are 'rxEt'", {
   ev <- et()
   expect_true(is(ev, "rxEt"))
+})
+
+test_that("can use 'evid=0' with time entries", {
+  expect_error(et(amt = 10, cmt = 1, time = 0, evid = 1, id = 1) %>%
+                 et(time = c(0, 10, 20), evid = 0), NA)
+
+})
+
+test_that("extra doses are not added (nlmixr2/rxode2et#2)", {
+  foo <- et(amt=10, id=1:2) %>% et(time=1, id=2:3)
+  expect_equal(
+    foo$id[!is.na(foo$amt)],
+    1:2
+  )
+})
+
+test_that("event table id, (rxode2et#4)", {
+  expect_error(et(amt = 10, time = 0, evid = 1, id = 1:5) %>%
+    et(amt = 100, time = 0, evid = 1, id = 6:10) %>%
+    et(amt = 1000, time = 0, evid = 1, id = 11), NA)
+
+})
+
+test_that("event table non-zero time", {
+  expect_warning(et(amt=1.153846, ii=24*7*6, until=24*7*6*2) %>%
+    et(amt=1.153846, time=24*7*6*(2+8), ii=24*7*8, until=24*7), "until")
+})
+
+
+test_that("event table cmt needs to be evaluated #16", {
+
+  dosing_df <- data.frame(
+    DOSE = c(0.1, 0.5),
+    CMT = c("A", "B"),
+    TIME = c(0, 0)
+  )
+
+  samp_t <- c(0, 0.1, 0.5, 1, 2)
+
+  # The below should work... but does not
+  sub_df <- dosing_df[1, , drop = T]
+
+  expect_error(et(
+    amt = sub_df$DOSE,
+    cmt = sub_df$CMT,
+    time = sub_df$TIME,
+    evid = 1,
+    id = 1:5
+  ) %>%
+    add.sampling(time = samp_t), NA)
+
 })

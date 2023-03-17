@@ -7,8 +7,15 @@
 
 [![R build
 status](https://github.com/nlmixr2/rxode2et/workflows/R-CMD-check/badge.svg)](https://github.com/nlmixr2/rxode2et/actions)
-[![codecov.io](https://codecov.io/github/nlmixr2/rxode2et/coverage.svg)](https://codecov.io/github/nlmixr2/rxode2et)
+[![codecov.io](https://codecov.io/gh/nlmixr2/rxode2et/coverage.svg)](https://app.codecov.io/gh/nlmixr2/rxode2et)
+[![CRAN
+version](http://www.r-pkg.org/badges/version/rxode2et)](https://cran.r-project.org/package=rxode2et)
+[![CRAN total
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/rxode2et)](https://cran.r-project.org/package=rxode2et)
+[![CRAN total
+downloads](https://cranlogs.r-pkg.org/badges/rxode2et)](https://cran.r-project.org/package=rxode2et)
 [![CodeFactor](https://www.codefactor.io/repository/github/nlmixr2/rxode2et/badge)](https://www.codefactor.io/repository/github/nlmixr2/rxode2et)
+![r-universe](https://nlmixr2.r-universe.dev/badges/rxode2et)
 <!-- badges: end -->
 
 The goal of rxode2et is to split off the ‘rxode2’ event table creation
@@ -29,8 +36,8 @@ devtools::install_github("nlmixr2/rxode2et")
 
 ## Examples
 
-This is mostly about random number generation so you can select a matrix
-from `cvPost()`
+This is mostly about event table creation `et()`, which you can access
+with this package alone.
 
 ``` r
 library(rxode2et)
