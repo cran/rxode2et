@@ -184,7 +184,7 @@ et <- function(x, ..., envir = parent.frame()) {
 
 #' Assign in the rxode2 pipeline
 #'
-#' 
+#'
 #' @param obj  Object to assign.  If NA return the value.
 #' @return The pipeline object (invisibly)
 #' @author Matthew L. Fidler
@@ -320,6 +320,15 @@ et.rxode2 <- function(x, ..., envir = parent.frame()) {
   assignInMyNamespace(".pipelineRx", x)
   do.call(et, c(list(...), list(envir = envir)), envir = envir)
 }
+
+#' @rdname et
+#' @export
+et.function <- et.rxode2
+
+#' @rdname et
+#' @export
+et.rxUi <- et.rxode2
+
 #' @rdname et
 #' @export
 et.rxSolve <- function(x, ..., envir = parent.frame()) {
@@ -656,6 +665,11 @@ et.default <- function(x, ..., time, amt, evid, cmt, ii, addl,
   }
   if (!missing(cmt)) {
     .cmt <- as.character(substitute(cmt))
+    .cmt2 <- try(force(cmt), silent=TRUE)
+    if (inherits(.cmt2, "character") ||
+          inherits(.cmt2, "numeric")) {
+      .cmt <- .cmt2
+    }
     if (length(.cmt) != 1) {
       if (.cmt[1] == "$") {
         force(cmt)
@@ -750,12 +764,12 @@ et.default <- function(x, ..., time, amt, evid, cmt, ii, addl,
 }
 #' Dispatch solve to 'rxode2' solve
 #'
-#' 
+#'
 #' @param x rxode2 solve dispatch object
 #' @param ...  other arguments
 #' @return if 'rxode2'  is loaded, a solved object, otherwise an error
 #' @author Matthew L. Fidler
-#' @export 
+#' @export
 rxEtDispatchSolve <- function(x, ...) {
   UseMethod("rxEtDispatchSolve")
 }
@@ -1543,7 +1557,7 @@ set_units.rxRateDur <- function(x, value, ..., mode = .setUnitsMode()) {
 }
 
 .setEvCur <- function(x1) {
-  .Call(`_rxode2et_setEvCur`, x1)  
+  .Call(`_rxode2et_setEvCur`, x1)
 }
 
 

@@ -1,3 +1,16 @@
+test_that("et import rate=-2", {
+
+  d <- data.frame(id = c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+       time = c(0, 2, 12.5, 24.5, 37, 48, 60.5, 72.5, 85.3, 96.5, 108.5, 112.5),
+       amt = c(25, 0, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 0),
+       rate = c(-2, 0, -2, -2, -2, -2, -2, -2, -2, -2, -2, 0))
+  d2 <- as.data.frame(et(d))
+  expect_equal(d2$rate, c(-2, NA_real_, -2, -2, -2, -2, -2, -2, -2, -2, -2, NA_real_))
+
+
+})
+
+
 for (radi in c(1, 2)) {
   forderForceBase(switch(radi,
                          TRUE,
@@ -612,5 +625,26 @@ test_that("event table cmt needs to be evaluated #16", {
     id = 1:5
   ) %>%
     add.sampling(time = samp_t), NA)
+
+})
+
+test_that("toTrialDuration works", {
+  trialEnd = 2
+  ev <- et(data.frame(id = rep(1:2, 3),  time = c(13, 14, 13.5, 14.5, 15.3, 16.5)))
+  res <- toTrialDuration(ev, trialEnd = trialEnd, interval = 0.5)
+  expect_setequal(res$time, c(13, 13.5, 14, 14.5, 15, 14, 14.5, 15, 15.5, 16))
+})
+
+test_that("Ad issue #23", {
+
+  cmti <- "Ad"
+  dose_nmol <- 3
+  dosing <- et(time = 0, amt = dose_nmol, cmt = cmti)
+
+  expect_equal(dosing$cmt, "Ad")
+
+  dosing <- et(time = 0, amt = dose_nmol, cmt = cmtj)
+
+  expect_equal(dosing$cmt, "cmtj")
 
 })

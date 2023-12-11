@@ -1,3 +1,11 @@
+# rxode2et 2.0.11
+
+* Make the stacking more flexible to help rxode2 have more types of plots
+
+* Add `toTrialDuration` by Omar Elashkar to convert event data to trial duration data
+
+* Fix Issue #23 and prefer variable values over NSE values
+
 # rxode2et 2.0.10
 
 * Fix dollar sign accessing of objects (like data frames), as pointed
