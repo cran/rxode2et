@@ -1,6 +1,6 @@
-49bcdbf5c910c304e0e8cc23cdc4ed9e *DESCRIPTION
+e4f7301f793f3446150efe5f66b25bc4 *DESCRIPTION
 1160761eb3c9f510c95887ef4f14bf03 *NAMESPACE
-a6653d99adee2887e631827a6c375507 *NEWS.md
+b8bbf7d2a3b5089c8f6d817bff20fe21 *NEWS.md
 17246f02d83f76ef6a94384fb004ccc3 *R/CTS.R
 5544225e10258033696ad3bf4cfd5b1a *R/RcppExports.R
 61f615e51582c1874be2c27739261c57 *R/collectWarnings.R
@@ -14,7 +14,7 @@ fa1c14cfe3ad69328928805327035a01 *R/print.R
 820b1d7af3af1d82d3d8394ba70390d8 *R/rxCbindStudyIndividual.R
 78ea05aaa0ef7b09ce0b9faf7747a7c8 *R/rxReq.R
 cd4a452efd094ff1dd75d30834367ea0 *R/rxStack.R
-031c256e6a8e14b39b8c2a75e8b37674 *R/rxode2et_md5.R
+24064d8f49411657462a2cfedbcf59f4 *R/rxode2et_md5.R
 39ece1a7c31e2c007029927637a3698e *R/units.R
 71ccd29cf54f342d210620ff4bf35f87 *R/zzz.R
 a710913edc3cce6885761c2f23b6282d *README.md
@@ -40,7 +40,7 @@ dcafd9b7e5868cffc909c1d9d827d6e4 *man/etSeq.Rd
 239e43b0e9e0cf78b5d363e9b205fd9a *man/forderForceBase.Rd
 bf5cdfd378128f2dc20513cb82c8d63e *man/is.rxEt.Rd
 2f970b7d5fc2a33892acad55bc686a16 *man/is.rxStackData.Rd
-2bc5f917a729e0d22dbad90f71fb6ad2 *man/reexports.Rd
+71e27e36e9b919faa63b474b9c5a0ba4 *man/reexports.Rd
 51e35772a6c1324a1d8df281bb144f05 *man/rxCbindStudyIndividual.Rd
 6e79b497534a2430561d4d8fc8e482d0 *man/rxEtDispatchSolve.Rd
 2f593efb1d103e2341e38c4c32fef16e *man/rxEvid.Rd
@@ -53,7 +53,7 @@ a054f1bb7a9d14e045d989cc8f7ab0ac *src/RcppExports.cpp
 220e9d2f9af178f99f282f4c82b826b8 *src/cbindThetaOmega.cpp
 f1b9b468ad9a460fb582d478ad846921 *src/checkmate.h
 bc64a1cf667de6eef8917a9909e770a8 *src/defines.h
-639b16e814525442214ffedcf9720451 *src/et.cpp
+a681addc6b69e183f353aab97c14efec *src/et.cpp
 8f57eb944db0beef3fe8f52e6d71d9e3 *src/etTran.cpp
 47de446f61e84464fb4387f908ecc333 *src/init.c
 20e9aecd2a4af3c4ccb98426d7dee7c3 *src/isEt.c
