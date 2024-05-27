@@ -1,6 +1,6 @@
 Package: rxode2et
 Title: Event Table Functions for 'rxode2'
-Version: 2.0.12
+Version: 2.0.13
 Authors@R: c(
     person("Matthew L.", "Fidler", , "matthew.fidler@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8538-6691")),
@@ -20,7 +20,7 @@ URL: https://nlmixr2.github.io/rxode2et/,
 BugReports: https://github.com/nlmixr2/rxode2et/issues/
 Depends: R (>= 4.0.0)
 Imports: stats, utils, methods, Rcpp, checkmate, rxode2random (>=
-        2.0.13), rxode2parse (>= 2.0.18), cli, crayon, magrittr, lotri
+        2.1.1), rxode2parse (>= 2.0.19), cli, crayon, magrittr, lotri
 Suggests: testthat (>= 3.0.0), units, tibble, data.table, dplyr,
         pillar, nlmixr2data, qs
 LinkingTo: rxode2random, rxode2parse, Rcpp
@@ -30,7 +30,7 @@ Encoding: UTF-8
 Language: en-US
 NeedsCompilation: yes
 RoxygenNote: 7.3.1
-Packaged: 2024-01-30 11:04:01 UTC; matt
+Packaged: 2024-05-27 14:48:50 UTC; matt
 Author: Matthew L. Fidler [aut, cre] (<https://orcid.org/0000-0001-8538-6691>),
   Wenping Wang [ctb],
   Fuji Goro [ctb],
@@ -39,4 +39,4 @@ Author: Matthew L. Fidler [aut, cre] (<https://orcid.org/0000-0001-8538-6691>),
   Omar Elashkar [ctb]
 Maintainer: Matthew L. Fidler <matthew.fidler@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-01-30 15:20:02 UTC
+Date/Publication: 2024-05-27 15:30:02 UTC
